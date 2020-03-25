@@ -2,7 +2,7 @@ import requests
 
 
 class ShoptraderAPIClient:
-    API_URL = 'shoptrader.nl/'
+    API_URL = 'shoptrader.nl/api/v2/'
     API_key = None
     status_code = None
 
