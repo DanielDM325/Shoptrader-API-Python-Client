@@ -10,7 +10,7 @@ class ShoptraderAPIClient:
         self.API_URL = API_URL + self.API_URL
         self.token = {'token': token}
 
-    def products_get_product(code_type, product_code):
+    def products_get_product(self, code_type, product_code):
         API_URL = self.API_URL + 'products/' + str(product_code)
         headers = {'accept': 'application/json'}
         params = {'search', code_type}
@@ -20,7 +20,7 @@ class ShoptraderAPIClient:
         else:
             return None
 
-    def products_post_product(model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description):
+    def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description):
         API_URL = self.API_URL + 'products/'
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
         data = {
@@ -51,7 +51,7 @@ class ShoptraderAPIClient:
         else:
             return None
 
-    def currencies_get_currencies():
+    def currencies_get_currencies(self):
         API_URL = self.API_URL + 'currencies/'
         headers = {'accept': 'aplication/json'}
         response = requests.post(API_URL, headers=headers)
