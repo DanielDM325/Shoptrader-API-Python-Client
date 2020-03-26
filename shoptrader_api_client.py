@@ -2,12 +2,12 @@ import requests
 
 
 class ShoptraderAPIClient:
-    API_URL = '.shoptrader.nl/api/v2/'
+    API_URL = '.shoptrader.com/api/v2/'
     token = None
     status_code = None
 
     def __init__(self, API_URL, token):
-        self.API_URL = API_URL + self.API_URL
+        self.API_URL = 'http://' + API_URL + self.API_URL
         self.token = {'token': token}
 
     def products_get_product(self, code_type, product_code):
@@ -52,9 +52,9 @@ class ShoptraderAPIClient:
             return None
 
     def currencies_get_currencies(self):
-        API_URL = self.API_URL + 'currencies/'
+        API_URL = self.API_URL + 'currencies'
         headers = {'accept': 'aplication/json'}
-        response = requests.post(API_URL, headers=headers)
+        response = requests.get(API_URL, params=self.token, headers=headers)
         if response.status_code == 200:
             return response.json()
         else:
