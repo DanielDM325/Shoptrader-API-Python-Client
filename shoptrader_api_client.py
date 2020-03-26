@@ -45,7 +45,6 @@ class ShoptraderAPIClient:
             'extraDescription': extra_description,
             'introDescription': intro_description
         }
-
         response = requests.post(API_URL, headers=headers, data=data)
         if response.status_code == 200:
             return response.json()
