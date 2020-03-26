@@ -2,7 +2,7 @@ import requests
 
 
 class ShoptraderAPIClient:
-    API_URL = 'shoptrader.nl/api/v2/'
+    API_URL = '.shoptrader.nl/api/v2/'
     API_key = None
     status_code = None
 
@@ -46,6 +46,15 @@ class ShoptraderAPIClient:
             'introDescription': intro_description
         }
         response = requests.post(API_URL, headers=headers, data=data)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
+    def currencies_get_currencies():
+        API_URL = self.API_URL + 'currencies/'
+        headers = {'accept': 'aplication/json'}
+        response = requests.post(API_URL, headers=headers)
         if response.status_code == 200:
             return response.json()
         else:
