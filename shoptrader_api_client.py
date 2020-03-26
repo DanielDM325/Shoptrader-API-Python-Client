@@ -3,12 +3,12 @@ import requests
 
 class ShoptraderAPIClient:
     API_URL = '.shoptrader.nl/api/v2/'
-    API_key = None
+    token = None
     status_code = None
 
-    def __init__(self, API_URL, API_key):
+    def __init__(self, API_URL, token):
         self.API_URL = API_URL + self.API_URL
-        self.API_key = API_key
+        self.token = {'token': token}
 
     def products_get_product(code_type, product_code):
         API_URL = self.API_URL + 'products/' + str(product_code)
