@@ -1,5 +1,4 @@
 import requests
-#import json
 
 
 class ShoptraderAPIClient:
@@ -16,6 +15,29 @@ class ShoptraderAPIClient:
         headers = {'accept': 'application/json'}
         params = {'token': self.token['token'], 'search': code_type}
         response = requests.get(API_URL, params=params, headers=headers)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
+    def products_patch_product(self, product_code):
+        API_URL = self.API_URL + 'products/' + str(product_code)
+        headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
+        data = {
+            'model': str(model),
+            'sku': str(sku),
+            'ean': str(ean),
+            'name': name,
+            'quantity': quantity,
+            'categoryId', category_id,
+            'price': price,
+            'purchasePrice': purchase_price,
+            'status': status,
+            'taxRate': tax_rate,
+            'images': images,
+            'imagesAlt': images_alt
+        }
+        response.patch(API_URL, params=self.token, headers=headers, json=data)
         if response.status_code == 200:
             return response.json()
         else:
