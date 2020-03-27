@@ -1,4 +1,5 @@
 import requests
+#import json
 
 
 class ShoptraderAPIClient:
@@ -24,20 +25,21 @@ class ShoptraderAPIClient:
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
         data = {
-            'model': model,
+            'model': str(model),
             'sku': str(sku),
             'ean': str(ean),
             'name': name,
-            'quantity': str(quantity),
-            'price': str(price),
-            'purchasePrice': str(purchase_price),
+            'quantity': quantity,
+            'price': price,
+            'purchasePrice': purchase_price,
+            'status': status,
             'images': images,
             'imagesAlt': images_alt,
-            'height': str(height),
-            'width': str(width),
+            'height': height,
+            'width': width,
             'categoryId': str(category_id),
-            'taxRate': str(tax_rate),
-            'taxClassId': str(tax_class_id),
+            'taxRate': tax_rate,
+            'taxClassId': tax_class_id,
             'metaTitle': meta_title,
             'metaKeyword': meta_keyword,
             'metaDescription': meta_description,
@@ -45,7 +47,7 @@ class ShoptraderAPIClient:
             'extraDescription': extra_description,
             'introDescription': intro_description
         }
-        response = requests.post(API_URL, params=token, headers=headers, data=data)
+        response = requests.post(API_URL, params=self.token, headers=headers, json=data)
         if response.status_code == 200:
             return response.json()
         else:
