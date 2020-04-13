@@ -1,6 +1,7 @@
+![Node Development logo](https://nodedevelopment.net/wp-content/uploads/2017/04/Node-Development-logo.png) ![Shoptader logo](https://www.pay.nl/uploads/1/ImageText/plug-in_logo_shoptrader.png)
 # Shoptrader API Python Client
- 
-The Shoptrader API Python Client is a wrapper developed to interface with the REST API provided by the Shoptrader platform. It greatly helps to develop applications using Python code instead of calling numerous url's using cURL. To get a complete view of all available calls visit their [API documentation page] (http://apidocs.shoptrader.com/).
+
+The Shoptrader API Python Client is a wrapper developed to interface with the REST API provided by the Shoptrader platform. It greatly helps to develop applications using Python code instead of calling numerous url's using cURL. To get a complete view of all available calls visit their [API documentation page](http://apidocs.shoptrader.com/).
 
 ## Getting Started
 
