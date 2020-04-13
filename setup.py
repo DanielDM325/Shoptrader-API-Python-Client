@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="shoptrader_api_client",
+    name="shoptrader-api-client-dmizrahi",
     version="0.1.0",
     author="Daniel Mizrahi",
     author_email="dmizrahi@nodedevelopment.net",
