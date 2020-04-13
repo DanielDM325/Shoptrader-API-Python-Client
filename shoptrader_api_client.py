@@ -46,6 +46,19 @@ class ShoptraderAPIClient:
             return None
     """
 
+    def products_get_products_range(self, only_main_products):
+        API_URL = self.API_URL + 'products'
+        headers = {'accept': 'application/json'}
+        params = {
+            'filter[only_main_products]': 'true' if only_main_products else 'false',
+            'token': self.token['token']
+        }
+        response = requests.get(API_URL, params=params, headers=headers)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
     def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
