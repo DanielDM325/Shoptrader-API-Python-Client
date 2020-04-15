@@ -1,4 +1,4 @@
-![Node Development logo](https://nodedevelopment.net/wp-content/uploads/2017/04/Node-Development-logo.png) ![Shoptader logo](https://www.myparcel.nl/app/uploads/2019/08/Logo_Shoptrader-180x0-c-default.png =162x82)
+![Node Development logo](https://nodedevelopment.net/wp-content/uploads/2017/04/Node-Development-logo.png) ![Shoptader logo](https://www.myparcel.nl/app/uploads/2019/08/Logo_Shoptrader-180x0-c-default.png)
 # Shoptrader API Python Client
 > Developed by Node Development
 
@@ -32,6 +32,6 @@ This package is developed by Daniel Mizrahi from Node Development
 [dmizrahi@nodedevelopment.net](mailto:dmizrahi@nodedevelopment.net)
 [www.nodedevelopment.net](https://nodedevelopment.net)
 
-Of course none of this would be possible without the help of Shoptrader
+Of course none of this would be possible without the help of Shoptrader.
 
 ## License
