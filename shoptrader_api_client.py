@@ -59,7 +59,7 @@ class ShoptraderAPIClient:
             return response.json()
         else:
             return None
-    
+
     def products_get_number_of_products(self):
         response = self.products_get_products_range(True)
         if response is None:
