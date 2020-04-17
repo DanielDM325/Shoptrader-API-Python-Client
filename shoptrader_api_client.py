@@ -46,7 +46,7 @@ class ShoptraderAPIClient:
             return None
     """
 
-    def products_get_products_range(self, only_main_products, offset):
+    def products_get_products_range(self, only_main_products, offset=0):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json'}
         params = {
@@ -59,6 +59,13 @@ class ShoptraderAPIClient:
             return response.json()
         else:
             return None
+    
+    def products_get_number_of_products(self):
+        response = self.products_get_products_range(True)
+        if response is None:
+            return None
+        else:
+            return int(response['numRows'])
 
     def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description):
         API_URL = self.API_URL + 'products'
