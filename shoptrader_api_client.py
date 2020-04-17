@@ -54,14 +54,14 @@ class ShoptraderAPIClient:
             'token': self.token['token'],
             'offset': str(offset)
         }
-        response = requests.get(API_URL, params=params, headers=headers)
+        response = requests.get(API_URL, params=params, headers=headers, auth=self.credentials)
         if response.status_code == 200:
             return response.json()
         else:
             return None
 
     def products_get_number_of_products(self):
-        response = self.products_get_products_range(True)
+        response = self.products_get_products_range(True, 0)
         if response is None:
             return None
         else:
