@@ -20,7 +20,7 @@ class ShoptraderAPIClient:
             return response.json()
         else:
             return None
-
+    
     """
     def products_patch_product(self, product_code):
         API_URL = self.API_URL + 'products/' + str(product_code)
@@ -31,7 +31,7 @@ class ShoptraderAPIClient:
             'ean': str(ean),
             'name': name,
             'quantity': quantity,
-            'categoryId', category_id,
+            'categoryId': category_id,
             'price': price,
             'purchasePrice': purchase_price,
             'status': status,
@@ -45,14 +45,14 @@ class ShoptraderAPIClient:
         else:
             return None
     """
-
-    def products_get_products_range(self, only_main_products, offset=0):
+    
+    def products_get_products_range(self, only_main_products, offset):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json'}
         params = {
             'filter[only_main_products]': 'true' if only_main_products else 'false',
-            'token': self.token['token'],
-            'offset': str(offset)
+            'offset': str(offset),
+            'token': self.token['token']
         }
         response = requests.get(API_URL, params=params, headers=headers, auth=self.credentials)
         if response.status_code == 200:
@@ -67,7 +67,7 @@ class ShoptraderAPIClient:
         else:
             return int(response['numRows'])
 
-    def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description):
+    def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, manufacturer_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
         data = {
@@ -81,17 +81,18 @@ class ShoptraderAPIClient:
             'status': status,
             'images': images,
             'imagesAlt': images_alt,
-            'height': height,
             'width': width,
+            'height': height,
             'categoryId': str(category_id),
             'taxRate': tax_rate,
             'taxClassId': tax_class_id,
+            'manufacturerId': manufacturer_id,
             'metaTitle': meta_title,
             'metaKeyword': meta_keyword,
             'metaDescription': meta_description,
             'description': description,
-            'extraDescription': extra_description,
-            'introDescription': intro_description
+            'introDescription': intro_description,
+            'extraDescription': extra_description
         }
         response = requests.post(API_URL, params=self.token, headers=headers, json=data, auth=self.credentials)
         if response.status_code == 200:
