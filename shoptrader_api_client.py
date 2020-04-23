@@ -24,27 +24,6 @@ class ShoptraderAPIClient:
     def products_patch_product(self, product_code, model, sku, ean, name, description, intro_description, extra_description, meta_title, meta_keyword, meta_description, quantity, category_id, price, purchase_price, status, tax_rate, manufacturer_id, images, images_alt):
         API_URL = self.API_URL + 'products/' + str(product_code)
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
-        """data = {
-            'model': str(model),
-            'sku': str(sku),
-            'ean': str(ean),
-            'name': name,
-            'description': description,
-            'introDescription': intro_description,
-            'extraDescription': extra_description,
-            'metaTitle': meta_title,
-            'metaKeyword': meta_keyword,
-            'metaDescription': meta_description,
-            'quantity': quantity,
-            'categoryId': category_id,
-            'price': price,
-            'purchasePrice': purchase_price,
-            'status': status,
-            'taxRate': tax_rate,
-            'manufacturerId': manufacturer_id,
-            'images': images,
-            'imagesAlt': images_alt
-        }"""
         data = {}
         if model is not None:
             data['model'] = str(model)
@@ -56,7 +35,7 @@ class ShoptraderAPIClient:
             data['name'] = name
         if description is not None:
             data['description'] = description
-        if intro_description  is not None:
+        if intro_description is not None:
             data['introDescription'] = intro_description
         if extra_description is not None:
             data['extraDescription'] = extra_description
