@@ -20,32 +20,76 @@ class ShoptraderAPIClient:
             return response.json()
         else:
             return None
-    
-    """
-    def products_patch_product(self, product_code):
+
+    def products_patch_product(self, product_code, model, sku, ean, name, description, intro_description, extra_description, meta_title, meta_keyword, meta_description, quantity, category_id, price, purchase_price, status, tax_rate, manufacturer_id, images, images_alt):
         API_URL = self.API_URL + 'products/' + str(product_code)
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
-        data = {
+        """data = {
             'model': str(model),
             'sku': str(sku),
             'ean': str(ean),
             'name': name,
+            'description': description,
+            'introDescription': intro_description,
+            'extraDescription': extra_description,
+            'metaTitle': meta_title,
+            'metaKeyword': meta_keyword,
+            'metaDescription': meta_description,
             'quantity': quantity,
             'categoryId': category_id,
             'price': price,
             'purchasePrice': purchase_price,
             'status': status,
             'taxRate': tax_rate,
+            'manufacturerId': manufacturer_id,
             'images': images,
             'imagesAlt': images_alt
-        }
-        response.patch(API_URL, params=self.token, headers=headers, json=data, auth=self.credentials)
+        }"""
+        data = {}
+        if model is not None:
+            data['model'] = str(model)
+        if sku is not None:
+            data['sku'] = str(sku)
+        if ean is not None:
+            data['ean'] = str(ean)
+        if name is not None:
+            data['name'] = name
+        if description is not None:
+            data['description'] = description
+        if intro_description  is not None:
+            data['introDescription'] = intro_description
+        if extra_description is not None:
+            data['extraDescription'] = extra_description
+        if meta_title is not None:
+            data['metaTitle'] = meta_title
+        if meta_keyword is not None:
+            data['metaKeyword'] = meta_keyword
+        if meta_description is not None:
+            data['metaDescription'] = meta_description
+        if quantity is not None:
+            data['quantity'] = quantity
+        if category_id is not None:
+            data['categoryId'] = category_id
+        if price is not None:
+            data['price'] = price
+        if purchase_price is not None:
+            data['purchasePrice'] = purchase_price
+        if status is not None:
+            data['status'] = status
+        if tax_rate is not None:
+            data['taxRate'] = tax_rate
+        if manufacturer_id is not None:
+            data['manufacturerId'] = manufacturer_id
+        if images is not None:
+            data['images'] = images
+        if images_alt is not None:
+            data['imagesAlt'] = images_alt
+        response = requests.patch(API_URL, params=self.token, headers=headers, json=data, auth=self.credentials)
         if response.status_code == 200:
             return response.json()
         else:
             return None
-    """
-    
+
     def products_get_products_range(self, only_main_products, offset):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json'}
