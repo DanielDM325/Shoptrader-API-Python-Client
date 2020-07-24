@@ -90,7 +90,7 @@ class ShoptraderAPIClient:
         else:
             return int(response['numRows'])
 
-    def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, manufacturer_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description):
+    def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, manufacturer_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description, supplier_id):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
         data = {
@@ -115,7 +115,8 @@ class ShoptraderAPIClient:
             'metaDescription': meta_description,
             'description': description,
             'introDescription': intro_description,
-            'extraDescription': extra_description
+            'extraDescription': extra_description,
+            'supplier_id': str(supplier_id)
         }
         response = requests.post(API_URL, params=self.token, headers=headers, json=data, auth=self.credentials)
         if response.status_code == 200:
