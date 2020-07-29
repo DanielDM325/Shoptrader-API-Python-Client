@@ -116,7 +116,7 @@ class ShoptraderAPIClient:
             'description': description,
             'introDescription': intro_description,
             'extraDescription': extra_description,
-            'supplier_id': str(supplier_id)
+            'supplierId': supplier_id
         }
         response = requests.post(API_URL, params=self.token, headers=headers, json=data, auth=self.credentials)
         if response.status_code == 200:
