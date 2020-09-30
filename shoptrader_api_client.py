@@ -124,6 +124,15 @@ class ShoptraderAPIClient:
         else:
             return None
 
+    def products_delete_product(self, product_code):
+        API_URL = self.API_URL + 'products/' + str(product_code)
+        headers = {'accept': 'aplication/json'}
+        response = requests.delete(API_URL, params=self.token, headers=headers, auth=self.credentials)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
     def currencies_get_currencies(self):
         API_URL = self.API_URL + 'currencies'
         headers = {'accept': 'aplication/json'}
