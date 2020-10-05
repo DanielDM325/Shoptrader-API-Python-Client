@@ -114,34 +114,60 @@ class ShoptraderAPIClient:
         else:
             return int(response['numRows'])
 
-    def products_post_product(self, model, sku, ean, name, quantity, price, purchase_price, status, images, images_alt, height, width, category_id, tax_rate, tax_class_id, manufacturer_id, meta_title, meta_keyword, meta_description, description, extra_description, intro_description, supplier_id):
+    def products_post_product(self, model=None, sku=None, ean=None, name=None, seo_name=None, quantity=None, price=None, purchase_price=None, status=None, images=None,
+                              images_alt=None, height=None, width=None, category_id=None, tax_rate=None, tax_class_id=None, manufacturer_id=None, meta_title=None, meta_keyword=None,
+                              meta_description=None, description=None, extra_description=None, intro_description=None, supplier_id=None):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
-        data = {
-            'model': str(model),
-            'sku': str(sku),
-            'ean': str(ean),
-            'name': name,
-            'quantity': quantity,
-            'price': price,
-            'purchasePrice': purchase_price,
-            'status': status,
-            'images': images,
-            'imagesAlt': images_alt,
-            'width': width,
-            'height': height,
-            'categoryId': str(category_id),
-            'taxRate': tax_rate,
-            'taxClassId': tax_class_id,
-            'manufacturerId': manufacturer_id,
-            'metaTitle': meta_title,
-            'metaKeyword': meta_keyword,
-            'metaDescription': meta_description,
-            'description': description,
-            'introDescription': intro_description,
-            'extraDescription': extra_description,
-            'supplierId': supplier_id
-        }
+        data = {}
+        if model is not None:
+            data['model'] = str(model)
+        if sku is not None:
+            data['sku'] = str(sku)
+        if ean is not None:
+            data['ean'] = str(ean)
+        if name is not None:
+            data['name'] = name
+        if seo_name is not None:
+            data['seoName'] = seo_name
+        if quantity is not None:
+            data['quantity'] = quantity
+        if price is not None:
+            data['price'] = price
+        if purchase_price is not None:
+            data['purchasePrice'] = purchase_price
+        if status is not None:
+            data['status'] = status
+        if images is not None:
+            data['images'] = images
+        if images_alt is not None:
+            data['imagesAlt'] = images_alt
+        if width is not None:
+            data['width'] = width
+        if height is not None:
+            data['height'] = height
+        if category_id is not None:
+            data['categoryId'] = str(category_id)
+        if tax_rate is not None:
+            data['taxRate'] = tax_rate
+        if tax_class_id is not None:
+            data['taxClassId'] = tax_class_id
+        if manufacturer_id is not None:
+            data['manufacturerId'] = manufacturer_id
+        if meta_title is not None:
+            data['metaTitle'] = meta_title
+        if meta_keyword is not None:
+            data['metaKeyword'] = meta_keyword
+        if meta_description is not None:
+            data['metaDescription'] = meta_description
+        if description is not None:
+            data['description'] = description
+        if intro_description is not None:
+            data['introDescription'] = intro_description
+        if extra_description is not None:
+            data['extraDescription'] = extra_description
+        if supplier_id is not None:
+            data['supplierId'] = supplier_id
         response = requests.post(API_URL, params=self.token, headers=headers, json=data, auth=self.credentials)
         if response.status_code == 200:
             return response.json()
