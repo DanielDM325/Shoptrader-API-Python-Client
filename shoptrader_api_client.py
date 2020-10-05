@@ -11,6 +11,30 @@ class ShoptraderAPIClient:
         self.token = {'token': token}
         self.credentials = credentials
 
+    def orders_post_order(self, basket_key=None, currency_type=None, language_id=None, comment=None, payment_status=None, payment_transaction_id=None, payment_comment=None):
+        API_URL = self.API_URL + 'orders'
+        headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
+        data = {}
+        if basket_key is not None:
+            data['baskeyKey'] = str(basket_key)
+        if currency_type is not None:
+            data['currencyType'] = currency_type
+        if language_id is not None:
+            data['languageId'] = language_id
+        if comment is not None:
+            data['comment'] = comment
+        if payment_status is not None:
+            data['paymentStatus'] = payment_status
+        if payment_transaction_id is not None:
+            data['paymentTransactionId'] = str(payment_transaction_id)
+        if payment_comment is not None:
+            data['paymentComment'] = payment_comment
+        response = requests.post(API_URL, params=self.token, headers=headers, json=data, auth=self.credentials)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
     def products_get_product(self, code_type, product_code):
         API_URL = self.API_URL + 'products/' + str(product_code)
         headers = {'accept': 'application/json'}
