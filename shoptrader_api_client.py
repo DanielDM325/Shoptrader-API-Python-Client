@@ -93,6 +93,15 @@ class ShoptraderAPIClient:
         else:
             return None
 
+    def products_get_product_variants(self, product_code):
+        API_URL = self.API_URL + 'products/' + str(product_code) + '/variants'
+        headers = {'accept': 'application/json'}
+        response = requests.patch(API_URL, params=self.token, headers=headers, auth=self.credentials)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
     def products_get_products_range(self, only_main_products, offset):
         API_URL = self.API_URL + 'products'
         headers = {'accept': 'application/json'}
