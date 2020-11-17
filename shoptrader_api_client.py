@@ -192,6 +192,15 @@ class ShoptraderAPIClient:
         else:
             return None
 
+    def catgories_get_catories(self):
+        API_URL = self.API_URL + 'categories'
+        headers = {'accept': 'aplication/json'}
+        response = requests.get(API_URL, params=self.token, headers=headers, auth=self.credentials)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
     def currencies_get_currencies(self):
         API_URL = self.API_URL + 'currencies'
         headers = {'accept': 'aplication/json'}
