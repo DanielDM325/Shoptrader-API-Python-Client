@@ -1,4 +1,4 @@
-![Node Development logo](https://nodedevelopment.net/wp-content/uploads/2017/04/Node-Development-logo.png) ![Shoptader logo](https://www.myparcel.nl/app/uploads/2019/08/Logo_Shoptrader-180x0-c-default.png)
+![Node Development logo](https://www.nodedevelopment.net/wp-content/uploads/logo-Node-Development.png) ![Shoptader logo](https://www.myparcel.nl/app/uploads/2019/08/Logo_Shoptrader-180x0-c-default.png)
 # Shoptrader API Python Client
 > Developed by Node Development
 
