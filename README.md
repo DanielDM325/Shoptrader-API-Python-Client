@@ -10,7 +10,7 @@ The Shoptrader API Python Client is a wrapper developed to interface with the RE
 Start out by creating an API token in the back office. This token will grant access to the API and define which rights a certain token might have or not have: read, write and delete.
 
 ```
-Back Office &rarr; Configuratie &rarr; Api &rarr; Add new token by providing a description and rights
+Back Office --> Configuratie --> Api --> Add new token by providing a description and rights
 ```
 
 Keep the token safe. If it ends up in malicous hands they will be able to abuse it. The token will be used when creating an API client object.
